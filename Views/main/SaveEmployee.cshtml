@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "SaveEmployee";
+}
+
+<h2>SaveEmployee</h2>
+
+@*@using (Html.BeginForm("SaveEmp", "main", FormMethod.Post))
+    {
+    <label for="Emp_Type">employee type </label>
+    <input type="text" id="lname" name="lname">
+    <br>
+    <br>
+    <label for="Emp_ID">employee id</label>
+    <input type="text" id="fname" name="fname">
+    <br>
+    <br>
+    <label for="Emp_Name">employee name</label>
+    <input type="text" id="lname" name="lname">
+    <br>
+    <br>
+    <label for="Emp_Email">email</label>
+    <input type="email" id="lname" name="lname">
+    <br>
+    <br><label for="Emp_Address">Address</label>
+    <input type="text" id="lname" name="lname">
+    <br>
+    <br><label for="Emp_Qualification">Qualification</label>
+    <input type="text" id="lname" name="lname">
+    <br>
+    <br><label for="Emp_Expericence">Experience</label>
+    <input type="text" id="lname" name="lname">
+    <br>
+    <br><label for="Emp_Joining_Date">joined on</label>
+    <input type="date" id="lname" name="lname">
+    <br>
+    <br><label for="Emp_Contract_Date">contract ends on</label>
+    <input type="date" id="lname" name="lname">
+    <br>
+    <br>
+    <label for="lname">e</label>
+    <input type="text" id="lname" name="lname">
+    <br>
+    <br>
+
+    <input type="submit" value="Submit">
+    }*@
+
+@using hrapp.Models;
+@model hrapp.Models.SaveEmployee
+@{
+    ViewBag.Title = "SaveEmp";
+}
+<h2>SaveEmp</h2>
+<br />
+@using(Html.BeginForm("SaveEmp", "main", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Employee Type : </td>
+            <td>
+                @Html.DropDownListFor(m => m.Emp_Type, new List<SelectListItem>
+                { new SelectListItem{Text="Contract_Empolyee",Value="C"},
+                new SelectListItem{ Text="OnRoll_Empolyee",Value="R"} }, "Select the Type")
+            </td>
+        </tr>
+        <tr>
+            <td>Employee ID : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_ID)</td>
+        </tr>
+        <tr>
+            <td>Employee Name : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_Name)</td>
+        </tr>
+        <tr>
+            <td>Phone Number : </td>
+            <td>@Html.TextBoxFor(m => m.Phone_Number)</td>
+        </tr>
+        <tr>
+            <td>Employee Email : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_Email)</td>
+        </tr>
+        <tr>
+            <td>Employee Address : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_Address)</td>
+        </tr>
+        <tr>
+            <td>Employee Qualification : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_Qualification)</td>
+        </tr>
+        <tr>
+            <td>Employee Expericence : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_Expericence)</td>
+        </tr>
+        <tr>
+            <td>Employee Joining Date : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_Joining_Date)</td>
+        </tr>
+        <tr>
+            <td>Employee Contract Date : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_Contract_Date)</td>
+        </tr>
+        <tr>
+            <td>Employee PF_NO : </td>
+            <td>@Html.TextBoxFor(m => m.Emp_PF_NO)</td>
+        </tr>
+        <td></td>
+        <td><input type="submit" value="Submit" /></td>
+    </table>
+}
+

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LoginnewModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Logins">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="SaveEmployee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_Type" Type="varchar" MaxLength="20" />
+          <Property Name="Emp_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone_Number" Type="bigint" />
+          <Property Name="Emp_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Emp_Address" Type="varchar" MaxLength="50" />
+          <Property Name="Emp_Qualification" Type="varchar" MaxLength="30" />
+          <Property Name="Emp_Expericence" Type="int" />
+          <Property Name="Emp_Joining_Date" Type="datetime" />
+          <Property Name="Emp_Contract_Date" Type="datetime" />
+          <Property Name="Emp_PF_NO" Type="int" />
+        </EntityType>
+        <Function Name="sp_add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Emp_Type" Type="varchar" Mode="In" />
+          <Parameter Name="Emp_ID" Type="int" Mode="In" />
+          <Parameter Name="Emp_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Phone_Number" Type="bigint" Mode="In" />
+          <Parameter Name="Emp_Email" Type="varchar" Mode="In" />
+          <Parameter Name="Emp_Address" Type="varchar" Mode="In" />
+          <Parameter Name="Emp_Qualification" Type="varchar" Mode="In" />
+          <Parameter Name="Emp_Expericence" Type="int" Mode="In" />
+          <Parameter Name="Emp_Joining_Date" Type="date" Mode="In" />
+          <Parameter Name="Emp_Contract_Date" Type="date" Mode="In" />
+          <Parameter Name="Emp_PF_NO" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="LoginnewModel1StoreContainer">
+          <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaveEmployee" EntityType="Self.SaveEmployee" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LoginnewModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SaveEmployee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="Int64" />
+          <Property Name="Emp_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Qualification" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Expericence" Type="Int32" />
+          <Property Name="Emp_Joining_Date" Type="DateTime" Precision="3" />
+          <Property Name="Emp_Contract_Date" Type="DateTime" Precision="3" />
+          <Property Name="Emp_PF_NO" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="LoginnewEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="SaveEmployees" EntityType="Self.SaveEmployee" />
+          <FunctionImport Name="sp_add">
+            <Parameter Name="Emp_Type" Mode="In" Type="String" />
+            <Parameter Name="Emp_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Emp_Name" Mode="In" Type="String" />
+            <Parameter Name="Phone_Number" Mode="In" Type="Int64" />
+            <Parameter Name="Emp_Email" Mode="In" Type="String" />
+            <Parameter Name="Emp_Address" Mode="In" Type="String" />
+            <Parameter Name="Emp_Qualification" Mode="In" Type="String" />
+            <Parameter Name="Emp_Expericence" Mode="In" Type="Int32" />
+            <Parameter Name="Emp_Joining_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Emp_Contract_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Emp_PF_NO" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LoginnewModel1StoreContainer" CdmEntityContainer="LoginnewEntities1">
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="LoginnewModel1.Login">
+              <MappingFragment StoreEntitySet="Logins">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaveEmployees">
+            <EntityTypeMapping TypeName="LoginnewModel1.SaveEmployee">
+              <MappingFragment StoreEntitySet="SaveEmployee">
+                <ScalarProperty Name="Emp_Type" ColumnName="Emp_Type" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+                <ScalarProperty Name="Emp_Address" ColumnName="Emp_Address" />
+                <ScalarProperty Name="Emp_Qualification" ColumnName="Emp_Qualification" />
+                <ScalarProperty Name="Emp_Expericence" ColumnName="Emp_Expericence" />
+                <ScalarProperty Name="Emp_Joining_Date" ColumnName="Emp_Joining_Date" />
+                <ScalarProperty Name="Emp_Contract_Date" ColumnName="Emp_Contract_Date" />
+                <ScalarProperty Name="Emp_PF_NO" ColumnName="Emp_PF_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_add" FunctionName="LoginnewModel1.Store.sp_add" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

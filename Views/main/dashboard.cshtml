@@ -1,0 +1,33 @@
+﻿@model hrapp.Models.Login
+
+@{
+    ViewBag.Title = "dashboard";
+}
+
+<h2>dashboard</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <br />
+    <br />
+    <input type="submit" value="Add New Employee" formaction="@Url.Action("SaveEmployee","main")" />
+    <br />
+    <br />
+    <input type="submit" value="Edit Employee Record" formaction="@Url.Action("SaveEmployee","main")" />
+    <br />
+    <br />
+    <input type="submit" value="Find Employee Record" formaction="@Url.Action("Find","HR")" />
+    <br />
+    <br />
+    <input type="submit" value="Delete Employee Record" formaction="@Url.Action("Delete","HR")" />
+    <br />
+    <br />
+    <form action="~/Views/main/Loginpage.cshtml">
+        <input type="submit" value="Go to Google" />
+    </form>
+
+    <button onclick="window.location.href='main/dashboard'">
+        Click Here
+    </button>
+
+}
